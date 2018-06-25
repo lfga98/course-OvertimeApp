@@ -1,7 +1,7 @@
 ## Overtime App
-##Key requirement: compaany needs documentation that salaried employees did or did not get overtime each week
+## Key requirement: compaany needs documentation that salaried employees did or did not get overtime each week
 
-##Models
+## Models
 - Post -> date:date rationale:text
 - User -> devise
 - AdminUser -> STI
@@ -12,6 +12,6 @@
 - Email Summary
 - Needs to be documented
 
-##UI
+## UI
 - Bootstrap -> formating
 # course-OvertimeApp
