@@ -7,5 +7,9 @@ describe 'navigate' do
       visit posts_path
       expect(page.status_code).to eq(200)
     end
+    it 'has conten' do
+      visit posts_path
+      expect(page).to have_content("/Posts/")
+    end
   end
 end
