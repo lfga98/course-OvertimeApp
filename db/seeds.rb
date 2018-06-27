@@ -1,4 +1,9 @@
-100.times do |posts|
-  Post.create(date: Date.today, rationale: "#{posts} rationale content")
+@user = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", first_name: "Jon", last_name: "Snow")
+
+puts "1 User created"
+
+100.times do |post|
+	Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: @user.id)
 end
-puts "Created 100 posts"
+
+puts "100 Posts have been created"
