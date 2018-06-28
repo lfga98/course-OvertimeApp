@@ -26,6 +26,12 @@ describe 'navigate' do
       expect(page).to have_content(/Rationale|Some/)
     end
   end
+  describe 'new' do
+    it 'has a link from the home page' do
+      visit root_path
+      click_link('new_post_from_nav')
+    end
+  end
 
   describe 'creation' do
   	before do
