@@ -26,6 +26,7 @@ class UserDashboard < Administrate::BaseDashboard
     type: Field::String.with_options(searchable: false),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
+    phone: Field::String.with_options(searchable: false)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -47,6 +48,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :posts,
     :id,
+    :phone,
     :email,
     :encrypted_password,
     :reset_password_token,
@@ -69,6 +71,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
+    :phone,
     :password,
     :first_name,
     :last_name,
