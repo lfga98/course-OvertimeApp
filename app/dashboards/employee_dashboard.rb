@@ -1,12 +1,6 @@
 require "administrate/base_dashboard"
 
 class EmployeeDashboard < Administrate::BaseDashboard
-  # ATTRIBUTE_TYPES
-  # a hash that describes the type of each of the model's fields.
-  #
-  # Each different type represents an Administrate::Field object,
-  # which determines how the attribute is displayed
-  # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany,
     id: Field::Number.with_options(searchable: false),
@@ -26,7 +20,9 @@ class EmployeeDashboard < Administrate::BaseDashboard
     type: Field::String.with_options(searchable: false),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
-    phone: Field::String.with_options(searchable: false)
+    phone: Field::String.with_options(searchable: false),
+    company: Field::String.with_options(searchable: false),
+    ssn: Field::Number.with_options(searchable: true)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -36,7 +32,7 @@ class EmployeeDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :posts,
-    :id,
+    :ssn,
     :email,
     :first_name,
     :last_name,
@@ -47,7 +43,7 @@ class EmployeeDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :posts,
-    :id,
+    :ssn,
     :phone,
     :email,
     :encrypted_password,
@@ -70,12 +66,14 @@ class EmployeeDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :ssn,
     :email,
     :phone,
     :password,
     :first_name,
     :last_name,
-    :type
+    :type,
+    :company
   ].freeze
 
   # Overwrite this method to customize how users are displayed
